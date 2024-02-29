@@ -26,3 +26,5 @@ console.log(sampledate.getFullYear())
 sampledate.toLocaleString('default', {
     weekday: "long"
 })
+
+
