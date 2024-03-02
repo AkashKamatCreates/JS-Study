@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style = "background-color: #212121; color: #fff">
+    <ul class = "language">
+        <li>JAVASCRIPT</li>
+    </ul>
+    
+</body>
+<script>
+    //here, we are adding to the above list using
+    //dom manipulation...
+
+    function addlanguage(name){
+        const li = document.createElement('li')
+        li.innerHTML = `${name}`
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addlanguage('python');
+    addlanguage('java')
+
+
+    function addoptimized(langname){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+    }
+
+    addoptimized("golang")
+    addoptimized("cpp")
+
+    //edit: 
+    const secondlang = document.querySelector("li:nth-child(2)")
+    // secondlang.innerHTML = "basic"
+    const newli = document.createElement('li')
+    newli.textContent = "basic"
+    secondlang.replaceWith(newli)
+
+    //remove: 
+    const lastlanguage = document.querySelector('li:last-child')
+    lastlanguage.remove()
+
+</script>
+</html>
