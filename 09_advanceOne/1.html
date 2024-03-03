@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API STUDY</title>
+</head>
+<body>
+    <h1>old school way of api through xmlhttprequest</h1>
+</body>
+<script>
+    const url = "https://official-joke-api.appspot.com/random_joke"
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText); 
+            /** 
+             * by default, the data recieved by api is in form 
+             * of strings. but if we are fetching a number, or some other
+             * type of data, we can just get the data as Object with 
+             * json.parse method. 
+            */
+            console.log(data);
+        }
+    }
+    xhr.send()
+</script>
+</html>
